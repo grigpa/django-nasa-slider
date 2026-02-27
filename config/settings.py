@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "filer",
     "mptt",
     "slider",
+    "adminsortable2",
 ]
 
 MIDDLEWARE = [
