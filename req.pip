@@ -20,6 +20,7 @@ Cython==3.0.10
 decorator==5.1.1
 distlib==0.3.8
 Django==5.2.11
+django-admin-sortable2==2.3.1
 django-debug-toolbar==4.3.0
 django-extensions==3.2.3
 django-filer==3.4.4
