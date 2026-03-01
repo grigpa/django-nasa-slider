@@ -32,10 +32,10 @@ pip install -r req.pip
 
 Создать БД:
 
-CREATE DATABASE slider_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER 'slider_user'@'localhost' IDENTIFIED BY 'slider_pass';
-GRANT ALL PRIVILEGES ON slider_db.* TO 'slider_user'@'localhost';
-FLUSH PRIVILEGES;
+- CREATE DATABASE slider_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+- CREATE USER 'slider_user'@'localhost' IDENTIFIED BY 'slider_pass';
+- GRANT ALL PRIVILEGES ON slider_db.* TO 'slider_user'@'localhost';
+- FLUSH PRIVILEGES;
 
 ---
 
@@ -44,12 +44,17 @@ FLUSH PRIVILEGES;
 Создать файл `.env`:
 
 DJANGO_SECRET_KEY=secret
+
 DJANGO_DEBUG=1
 
 DB_NAME=slider_db
+
 DB_USER=slider_user
+
 DB_PASSWORD=slider_pass
+
 DB_HOST=127.0.0.1
+
 DB_PORT=3306
 
 ---
