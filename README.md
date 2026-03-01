@@ -20,7 +20,7 @@ git clone <repo_url>
 cd <project>
 
 ### 2. Создать виртуальное окружение
-python3.12 -m venv .venv
+python -m venv .venv
 source .venv/bin/activate
 
 ### 3. Установить зависимости
