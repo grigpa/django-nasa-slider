@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}NASA{% endblock %}
+
+{% block content %}
+
+<section class="py-5 bg-black">
+  <div class="container text-center mb-5">
+    <h1 class="hero-title mb-3">Космическое агентство</h1>
+    <p class="hero-lead col-lg-8 mx-auto">
+      Национальное управление по аэронавтике и исследованию космического пространства —
+      ведомство, относящееся к федеральному правительству США и подчиняющееся
+      непосредственно президенту США.
+    </p>
+  </div>
+
+  <div class="container">
+    <div class="row align-items-center g-4 g-lg-5">
+
+  <!-- Земля: на мобилке вниз -->
+  <div class="col-lg-6 order-3 order-lg-1">
+    <img src="{% static 'img/earth.png' %}" class="img-fluid rounded-3 w-100" alt="Earth">
+  </div>
+
+  <!-- Иконки: на мобилке сразу после текста -->
+      <div class="col-lg-6 order-2 order-lg-2">
+        <div class="row g-4 text-center">
+
+          <div class="col-6">
+            <img src="{% static 'img/icon-rocket.svg' %}" height="48" class="mb-3" alt="">
+            <div class="fw-semibold small-title">Спейс шаттлы — пилотируемые корабли</div>
+          </div>
+
+          <div class="col-6">
+            <img src="{% static 'img/icon-telescope.svg' %}" height="48" class="mb-3" alt="">
+            <div class="fw-semibold small-title">Лучшее телескопическое оборудование</div>
+          </div>
+
+          <div class="col-6">
+            <img src="{% static 'img/icon-moon.svg' %}" height="48" class="mb-3" alt="">
+            <div class="fw-semibold small-title">Исследовательские станции на Луне — шаг к новым
+              открытиям!
+            </div>
+          </div>
+
+          <div class="col-6">
+            <img src="{% static 'img/icon-medal.svg' %}" height="48" class="mb-3" alt="">
+            <div class="fw-semibold small-title">Золотая медаль по научным исследованиям</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="gallery-section py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Фотографии</h2>
+
+    {% if slides %}
+      <!-- Большой слайдер -->
+      <div class="gallery-main js-gallery-main mb-4">
+        {% for s in slides %}
+          <div>
+<!--            <img-->
+<!--              src="{{ s.image.url }}"-->
+<!--              class="w-100 gallery-main-img"-->
+<!--              alt="{{ s.title|default:'Фото' }}"-->
+<!--              data-index="{{ forloop.counter0 }}"-->
+<!--            >-->
+            <img src="{{ s.image.url }}"
+                 class="w-100 gallery-main-img js-open-gallery"
+                 alt="{{ s.title|default:'Фото' }}"
+                 data-index="{{ forloop.counter0 }}">
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Миниатюры -->
+      <div class="gallery-thumbs js-gallery-thumbs px-3">
+        {% for s in slides %}
+          <div>
+            <img
+              src="{{ s.image.url }}"
+              class="thumb"
+              alt="{{ s.title|default:'Фото' }}"
+            >
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="text-center text-secondary">Слайды пока не добавлены в админке.</div>
+    {% endif %}
+  </div>
+</section>
+
+
+{% if slides %}
+<!-- Fullscreen Gallery Modal -->
+<div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content bg-black text-white">
+      <div class="modal-header border-0">
+        <div class="fw-semibold">Галерея</div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body p-0 d-flex align-items-center">
+        <div id="galleryCarousel" class="carousel slide w-100" data-bs-interval="false">
+          <div class="carousel-inner">
+            {% for s in slides %}
+              <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <div class="d-flex align-items-center justify-content-center" style="min-height: calc(100vh - 56px);">
+                  <img src="{{ s.image.url }}" alt="{{ s.title|default:'Фото' }}"
+                       class="img-fluid"
+                       style="max-height: 90vh; border-radius: 12px;">
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+
+          <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% endblock %}

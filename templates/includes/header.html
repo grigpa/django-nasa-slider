@@ -1,0 +1,27 @@
+{% load static %}
+<header class="header-gradient">
+  <nav class="navbar navbar-dark navbar-expand-md py-3">
+    <div class="container">
+      <button class="navbar-toggler border-0 p-0" type="button"
+              data-bs-toggle="collapse" data-bs-target="#topNav"
+              aria-controls="topNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <a class="navbar-brand mx-auto mx-md-0" href="#">
+        <img src="{% static 'img/logo.png' %}" height="36" alt="NASA">
+      </a>
+
+
+
+      <div class="collapse navbar-collapse mt-3 mt-md-0" id="topNav">
+        <ul class="navbar-nav mx-auto gap-md-4">
+          <li class="nav-item"><a class="nav-link text-white" href="#features">Преимущества</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#gallery">Фотографии</a></li>
+        </ul>
+      </div>
+      <a href="#" class="btn btn-danger px-4 ms-0 ms-md-auto">Вход</a>
+    </div>
+
+  </nav>
+</header>

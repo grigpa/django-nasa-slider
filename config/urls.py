@@ -28,7 +28,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("filer/", include("filer.urls")),  # удобно, чтобы filer нормально работал
+    path("filer/", include("filer.urls")),
+    path("", include("pages.urls")),
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,143 @@
+body {
+  background: #000;
+  color: #fff;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+
+/* header gradient */
+.header-gradient {
+  background: linear-gradient(90deg, #0b0f17, #1a2230);
+}
+
+/* gallery background */
+.gallery-section {
+  background: linear-gradient(180deg, #1a2230, #2a3446);
+}
+
+/* thumbs */
+.thumb {
+  width: 90px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+  opacity: .6;
+  cursor: pointer;
+}
+
+.thumb.active {
+  opacity: 1;
+  outline: 2px solid #fff;
+}
+
+/* arrows */
+.gallery-arrow {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* более аккуратные размеры текста на мобилке */
+.hero-title {
+  font-weight: 800;
+  line-height: 1.05;
+  font-size: clamp(34px, 7vw, 56px);
+}
+
+.hero-lead {
+  color: #a8b0bd;
+  font-size: clamp(14px, 3.6vw, 18px);
+  line-height: 1.6;
+}
+
+.small-title {
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+/* галерея: адаптация миниатюр */
+.thumbs-wrap {
+  max-width: 100%;
+}
+
+@media (max-width: 575.98px) {
+  .thumb {
+    width: 72px;
+    height: 56px;
+  }
+
+  .gallery-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* чтобы заголовок "Фотографии" не был слишком огромным */
+  h2 {
+    font-size: 32px;
+    font-weight: 800;
+  }
+}
+
+/* главное фото */
+.gallery-main-img {
+  border-radius: 12px;
+  max-height: 520px;
+  object-fit: cover;
+}
+
+/* slick: расстояние между миниатюрами */
+.gallery-thumbs .slick-slide {
+  padding: 0 10px;
+}
+.gallery-thumbs .slick-list {
+  margin: 0 -10px;
+}
+
+/* активная миниатюра (рамка белая) */
+.gallery-thumbs .slick-current .thumb {
+  opacity: 1;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+.gallery-thumbs .thumb {
+  opacity: .6;
+}
+
+/* стрелки как красные круглые */
+.gallery-arrow-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ef4444;
+  border: none;
+  z-index: 2;
+}
+.gallery-thumbs .slick-prev:before,
+.gallery-thumbs .slick-next:before {
+  color: #ef4444;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.modal-backdrop.show {
+  opacity: 0.85;           /* степень затемнения */
+  background: #000;
+}
+
+#galleryModal .modal-content {
+  background: transparent !important;
+  border: none;
+  box-shadow: none;
+}
+
+#galleryModal .modal-body {
+  background: transparent !important;
+}
+
+
+@media (max-width: 575.98px) {
+  .gallery-main-img { max-height: 360px; }
+  .gallery-arrow-btn { width: 40px; height: 40px; }
+}
