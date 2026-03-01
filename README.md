@@ -99,7 +99,7 @@ django-filer>=3.0
 easy-thumbnails>=2.8  
 django-mptt>=0.15  
 django-admin-sortable2>=2.1  
-Pillow>=10.0
+Pillow>=10.0  
 mysqlclient==2.2.8  
 
 ---
